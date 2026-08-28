@@ -1,0 +1,131 @@
+{
+  "uid" : "84a50ef62f89a913",
+  "name" : "shouldNotLoginNonexistentPassword",
+  "fullName" : "UserLoginTest.shouldNotLoginNonexistentPassword",
+  "historyId" : "4d252cb01360185d4201830079444689",
+  "time" : {
+    "start" : 1787779440671,
+    "stop" : 1787779441048,
+    "duration" : 377
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Логин пользователя",
+      "time" : {
+        "start" : 1787779440846,
+        "stop" : 1787779441022,
+        "duration" : 176
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "user",
+        "value" : "User@2df79942"
+      } ],
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0,
+      "hasContent" : true,
+      "stepsCount" : 0
+    }, {
+      "name" : "Проверка статус-кода 401",
+      "time" : {
+        "start" : 1787779441022,
+        "stop" : 1787779441023,
+        "duration" : 1
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "response",
+        "value" : "io.restassured.internal.RestAssuredResponseImpl@6eaa8abf"
+      } ],
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0,
+      "hasContent" : true,
+      "stepsCount" : 0
+    }, {
+      "name" : "Проверка сообщения об ошибке",
+      "time" : {
+        "start" : 1787779441023,
+        "stop" : 1787779441048,
+        "duration" : 25
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "response",
+        "value" : "io.restassured.internal.RestAssuredResponseImpl@6eaa8abf"
+      }, {
+        "name" : "expectedMessage",
+        "value" : "email or password are incorrect"
+      } ],
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0,
+      "hasContent" : true,
+      "stepsCount" : 0
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0,
+    "hasContent" : true,
+    "stepsCount" : 3
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : ""
+  }, {
+    "name" : "testClass",
+    "value" : "UserLoginTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "shouldNotLoginNonexistentPassword"
+  }, {
+    "name" : "suite",
+    "value" : "UserLoginTest"
+  }, {
+    "name" : "host",
+    "value" : "WIN-KIG0MDCNHNF"
+  }, {
+    "name" : "thread",
+    "value" : "1976@WIN-KIG0MDCNHNF.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit4"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ {
+      "uid" : "ac9e86262963077e",
+      "status" : "passed",
+      "time" : {
+        "start" : 1787778500480,
+        "stop" : 1787778500830,
+        "duration" : 350
+      }
+    } ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "84a50ef62f89a913.json",
+  "parameterValues" : [ ]
+}

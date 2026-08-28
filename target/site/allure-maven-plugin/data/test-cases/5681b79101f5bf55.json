@@ -1,0 +1,154 @@
+{
+  "uid" : "5681b79101f5bf55",
+  "name" : "shouldNotCreateDuplicateUser",
+  "fullName" : "UserCreateTest.shouldNotCreateDuplicateUser",
+  "historyId" : "f9fd11fb82da999c05e3161f8f43ec78",
+  "time" : {
+    "start" : 1787778500058,
+    "stop" : 1787778500302,
+    "duration" : 244
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Генерация уникального пользователя",
+      "time" : {
+        "start" : 1787778500058,
+        "stop" : 1787778500058,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0,
+      "hasContent" : false,
+      "stepsCount" : 0
+    }, {
+      "name" : "Регистрация пользователя",
+      "time" : {
+        "start" : 1787778500058,
+        "stop" : 1787778500217,
+        "duration" : 159
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "user",
+        "value" : "User@47f677a4"
+      } ],
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0,
+      "hasContent" : true,
+      "stepsCount" : 0
+    }, {
+      "name" : "Регистрация пользователя",
+      "time" : {
+        "start" : 1787778500218,
+        "stop" : 1787778500292,
+        "duration" : 74
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "user",
+        "value" : "User@47f677a4"
+      } ],
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0,
+      "hasContent" : true,
+      "stepsCount" : 0
+    }, {
+      "name" : "Проверка статус-кода 403",
+      "time" : {
+        "start" : 1787778500292,
+        "stop" : 1787778500292,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "response",
+        "value" : "io.restassured.internal.RestAssuredResponseImpl@4db10b9f"
+      } ],
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0,
+      "hasContent" : true,
+      "stepsCount" : 0
+    }, {
+      "name" : "Проверка сообщения об ошибке}",
+      "time" : {
+        "start" : 1787778500292,
+        "stop" : 1787778500302,
+        "duration" : 10
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "response",
+        "value" : "io.restassured.internal.RestAssuredResponseImpl@4db10b9f"
+      }, {
+        "name" : "expectedMessage",
+        "value" : "User already exists"
+      } ],
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0,
+      "hasContent" : true,
+      "stepsCount" : 0
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0,
+    "hasContent" : true,
+    "stepsCount" : 5
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : ""
+  }, {
+    "name" : "testClass",
+    "value" : "UserCreateTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "shouldNotCreateDuplicateUser"
+  }, {
+    "name" : "suite",
+    "value" : "UserCreateTest"
+  }, {
+    "name" : "host",
+    "value" : "WIN-KIG0MDCNHNF"
+  }, {
+    "name" : "thread",
+    "value" : "12840@WIN-KIG0MDCNHNF.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit4"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "5681b79101f5bf55.json",
+  "parameterValues" : [ ]
+}

@@ -1,0 +1,198 @@
+{
+  "uid" : "df72675f5aa8ac59",
+  "name" : "shouldCreateOrderWithAuth",
+  "fullName" : "OrderCreateTest.shouldCreateOrderWithAuth",
+  "historyId" : "a558082ed721c8a1819308e1bb6d2d51",
+  "time" : {
+    "start" : 1787779432594,
+    "stop" : 1787779437501,
+    "duration" : 4907
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Регистрация пользователя и получение accessToken",
+      "time" : {
+        "start" : 1787779432594,
+        "stop" : 1787779432765,
+        "duration" : 171
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0,
+      "hasContent" : false,
+      "stepsCount" : 0
+    }, {
+      "name" : "Получение списка валидных хешей ингредиентов",
+      "time" : {
+        "start" : 1787779432765,
+        "stop" : 1787779432848,
+        "duration" : 83
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0,
+      "hasContent" : false,
+      "stepsCount" : 0
+    }, {
+      "name" : "Создание заказа",
+      "time" : {
+        "start" : 1787779432848,
+        "stop" : 1787779436627,
+        "duration" : 3779
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "order",
+        "value" : "Order@2898c70d"
+      }, {
+        "name" : "token",
+        "value" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhOGY1OTY4OTg0MjcwMDAxYmVjY2JhZSIsImlhdCI6MTc4Nzc3OTQzMiwiZXhwIjoxNzg3NzgwNjMyfQ.zLspleKS_CkRbTEMMVNcxxQy_VXofcM8U4g0Yqi38Uw"
+      } ],
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0,
+      "hasContent" : true,
+      "stepsCount" : 0
+    }, {
+      "name" : "Проверка статус-кода 200",
+      "time" : {
+        "start" : 1787779436627,
+        "stop" : 1787779436627,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "response",
+        "value" : "io.restassured.internal.RestAssuredResponseImpl@2eea0775"
+      } ],
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0,
+      "hasContent" : true,
+      "stepsCount" : 0
+    }, {
+      "name" : "Проверка, что success=true",
+      "time" : {
+        "start" : 1787779436629,
+        "stop" : 1787779436680,
+        "duration" : 51
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "response",
+        "value" : "io.restassured.internal.RestAssuredResponseImpl@2eea0775"
+      } ],
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0,
+      "hasContent" : true,
+      "stepsCount" : 0
+    }, {
+      "name" : "Проверка, что номер заказа не пустой",
+      "time" : {
+        "start" : 1787779436680,
+        "stop" : 1787779436743,
+        "duration" : 63
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "response",
+        "value" : "io.restassured.internal.RestAssuredResponseImpl@2eea0775"
+      } ],
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0,
+      "hasContent" : true,
+      "stepsCount" : 0
+    }, {
+      "name" : "Удаление пользователя, если токен существует",
+      "time" : {
+        "start" : 1787779436743,
+        "stop" : 1787779437500,
+        "duration" : 757
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "token",
+        "value" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhOGY1OTY4OTg0MjcwMDAxYmVjY2JhZSIsImlhdCI6MTc4Nzc3OTQzMiwiZXhwIjoxNzg3NzgwNjMyfQ.zLspleKS_CkRbTEMMVNcxxQy_VXofcM8U4g0Yqi38Uw"
+      } ],
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0,
+      "hasContent" : true,
+      "stepsCount" : 0
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0,
+    "hasContent" : true,
+    "stepsCount" : 7
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : ""
+  }, {
+    "name" : "testClass",
+    "value" : "OrderCreateTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "shouldCreateOrderWithAuth"
+  }, {
+    "name" : "suite",
+    "value" : "OrderCreateTest"
+  }, {
+    "name" : "host",
+    "value" : "WIN-KIG0MDCNHNF"
+  }, {
+    "name" : "thread",
+    "value" : "1976@WIN-KIG0MDCNHNF.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit4"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ {
+      "uid" : "cbc823047110701c",
+      "status" : "broken",
+      "statusDetails" : "Connection refused: connect",
+      "time" : {
+        "start" : 1787778497583,
+        "stop" : 1787778497600,
+        "duration" : 17
+      }
+    } ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "df72675f5aa8ac59.json",
+  "parameterValues" : [ ]
+}
