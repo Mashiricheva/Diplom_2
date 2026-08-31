@@ -1,5 +1,6 @@
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
+import org.junit.After;
 import org.junit.Test;
 
 import java.util.List;
@@ -9,6 +10,8 @@ import static org.junit.Assert.*;
 public class OrderCreateTest extends BaseUrl {
     private final UserLogin userLogin = new UserLogin();
     private final OrderUser orderUser = new OrderUser();
+
+    private String accessToken;
 
 // С авторизацией
     @Test
@@ -20,8 +23,6 @@ public class OrderCreateTest extends BaseUrl {
         checkStatus200(response);
         checkSuccessTrue(response);
         checkOrderNumberNotNull(response);
-
-        deleteUserIfTokenExists(token);
     }
 // Без авторизации
     @Test
@@ -31,7 +32,6 @@ public class OrderCreateTest extends BaseUrl {
 
         checkStatus401(response);
         checkMessage(response,"You should be authorised");
-
     }
 // С ингридиентами
     @Test
@@ -43,8 +43,6 @@ public class OrderCreateTest extends BaseUrl {
         checkStatus200(response);
         checkSuccessTrue(response);
         checkOrderNumberNotNull(response);
-
-        deleteUserIfTokenExists(token);
     }
 // Без ингридиентов
     @Test
@@ -55,8 +53,6 @@ public class OrderCreateTest extends BaseUrl {
 
         checkStatus400(response);
         checkMessage(response,"Ingredient ids must be provided");
-
-        deleteUserIfTokenExists(token);
     }
 // С неверным хешем ингредиентов
     @Test
@@ -66,8 +62,14 @@ public class OrderCreateTest extends BaseUrl {
         Response response = createOrder(order,token);
 
         checkStatus500(response);
+    }
 
-        deleteUserIfTokenExists(token);
+    @After
+    public void cleanup() {
+        // Удаление пользователя
+        if (accessToken != null) {
+            userLogin.deleteUser(accessToken);
+        }
     }
 
     // ===== @Step методы =====//
@@ -76,7 +78,8 @@ public class OrderCreateTest extends BaseUrl {
         User user = new User("order" + System.currentTimeMillis() + "@yandex.ru",
                 "password123", "OrderUser");
         Response response = userLogin.register(user);
-        return response.jsonPath().getString("accessToken");
+        this.accessToken = response.jsonPath().getString("accessToken");
+        return this.accessToken;
     }
 
     @Step("Получение списка валидных хешей ингредиентов")
@@ -117,7 +120,7 @@ public class OrderCreateTest extends BaseUrl {
     private void checkOrderNumberNotNull(Response response) {
         assertNotNull(response.jsonPath().getString("order.number"));
     }
-    @Step("Проверка сообщения об ошибке}")
+    @Step("Проверка сообщения об ошибке")
     private void checkMessage(Response response, String expectedMessage) {
         assertEquals(expectedMessage, response.jsonPath().getString("message"));
     }
@@ -125,10 +128,5 @@ public class OrderCreateTest extends BaseUrl {
     private String extractAccessToken(Response response) {
         return response.jsonPath().getString("accessToken");
     }
-    @Step("Удаление пользователя, если токен существует")
-    private void deleteUserIfTokenExists(String token) {
-        if (token != null) {
-            userLogin.deleteUser(token);
-        }
-    }
+
 }

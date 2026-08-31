@@ -1,5 +1,6 @@
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
+import org.junit.After;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -7,6 +8,7 @@ import static org.junit.Assert.*;
 public class UserCreateTest extends BaseUrl {
     private final UserLogin userLogin = new UserLogin();
 
+    private String accessToken;
     // Создание уникального пользователя
     @Test
     public void shouldCreateUniqueUser () {
@@ -18,9 +20,6 @@ public class UserCreateTest extends BaseUrl {
         checkTokenNotNull(response);
         checkUserData(response, user);
 
-        // очистка
-        String token = extractAccessToken(response);
-        deleteUserIfTokenExists(token);
     }
 
     // Создание пользователя, который уже зарегистрирован
@@ -58,6 +57,14 @@ public class UserCreateTest extends BaseUrl {
         checkMessage(response,"Email, password and name are required fields");
     }
 
+    @After
+    public void cleanup() {
+        // Если пользователь был создан, удаляем его
+        if (accessToken != null) {
+            userLogin.deleteUser(accessToken);
+        }
+    }
+
                   // ===== @Step методы =====
     @Step("Генерация уникального пользователя")
     private User generateUniqueUser () {
@@ -67,7 +74,12 @@ public class UserCreateTest extends BaseUrl {
     }
     @Step("Регистрация пользователя")
     private Response registerUser (User user) {
-        return userLogin.register(user);
+        Response response = userLogin.register(user);
+        String token = response.jsonPath().getString("accessToken");
+        if (token != null) {
+            this.accessToken = token;
+        }
+        return response;
     }
     @Step ("Проверка статус-кода 200")
     private void checkStatus200 (Response response) {
@@ -95,14 +107,5 @@ public class UserCreateTest extends BaseUrl {
     private void checkMessage(Response response, String expectedMessage) {
         assertEquals(expectedMessage, response.jsonPath().getString("message"));
     }
-    @Step("Извлечение accessToken из ответа")
-    private String extractAccessToken(Response response) {
-        return response.jsonPath().getString("accessToken");
-    }
-    @Step("Удаление пользователя, если токен существует")
-    private void deleteUserIfTokenExists(String token) {
-        if (token != null) {
-            userLogin.deleteUser(token);
-        }
-    }
+
 }
